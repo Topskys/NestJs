@@ -1,0 +1,112 @@
+@import './variables';
+
+*{
+    // padding: 0;
+    // margin: 0;
+    outline: none; // 取消链接高亮
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 16px;
+}
+
+body{
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    // line-height: 1.5em;
+    // background:#f1f1f1;
+    -webkit-font-smoothing: antialiased; // 字体平滑，字体会变细（MacOS）
+}
+
+a{
+    color: #335eea;
+}
+
+
+// font size
+@each $sizeKey,$size in $font-sizes {
+    .fs-#{$sizeKey}{
+        font-size:$base-font-size*$size;
+    }
+}
+
+// text overflow
+.text-ellipsis {
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+
+// flex
+.r-flex {
+    display: flex;
+}
+.c-flex {
+    display: flex;
+    flex-direction: column;
+}
+
+@each $key,$value  in $flex-jc {
+    .jc-#{$key}{
+        justify-content:$value;
+    }
+}
+
+@each $key,$value  in $flex-ai {
+    .ai-#{$key}{
+        align-items:$value;
+    }
+}
+
+.flex-1{
+    flex: 1;// flex-grow 效果一致
+}
+
+.flex-grow-1{
+    flex-grow: 1;
+}
+
+
+
+// spacing 
+// .mt-1 => margin-top:1 level;
+@each $tk,$tv in $spacing-types {
+    @each $dk,$dv in $spacing-directions{
+        @each $sk,$sv in $spacing-sizes{
+            .#{$tk}#{$dk}-#{$sk}{
+                #{$tv}-#{$dv}:$spacing-base-size*$sv;
+            }
+        }
+    }
+}
+@each $tk,$tv in $spacing-types {
+    // m-0,mx-0
+        @each $sk,$sv in $spacing-sizes{
+            .#{$tk}-#{$sk}{
+                #{$tv}:$spacing-base-size*$sv;
+            }
+        }
+        // .mx-1 .my-1
+         @each $sk,$sv in $spacing-sizes{
+            .#{$tk}x-#{$sk}{
+                #{$tv}-left:$spacing-base-size*$sv;
+                #{$tv}-right:$spacing-base-size*$sv;
+            }
+            .#{$tk}y-#{$sk}{
+                #{$tv}-top:$spacing-base-size*$sv;
+                #{$tv}-right:$spacing-base-size*$sv;
+            }
+        }
+}
+
+
+
+// button
+.btn{
+    border: none;
+    border-radius:0.1538rem;
+    font-size:map-get($font-sizes, 'sm' );
+}

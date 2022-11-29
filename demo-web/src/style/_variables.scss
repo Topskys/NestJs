@@ -1,0 +1,57 @@
+// 变量
+// colors，如：x:(1,2,3)、x:(a:1,b:2,c:3...)
+$colors:(
+    primary:#335eea,
+    "white":#fff,
+    "black":#000,
+    "dark-1":#222,
+    "dark-2":#343440,
+    "grey":#999,
+    "light":#f1f1f1,
+);
+
+
+// font size
+$base-font-size:13rem; // 可在vscode设置中将pxtorem设置为13px(基准)，之后这里就可以写成1rem
+$font-sizes:(
+    xs:0.7692, // 10px
+    sm:0.9231, // 12px
+    md:1, // 13px
+    lg:1.0769, // 14px
+    xl:1.2308, // 16px
+);
+
+
+
+// flex
+$flex-jc:(
+    start:flex-start,
+    center:center,
+    end:flex-end,
+    between:space-between,
+    around:space-around,
+);
+
+
+$flex-ai:(
+    start:flex-start,
+    center:center,
+    end:flex-end,
+    stretch:stretch,
+    // between:space-between,
+    // around:space-around,
+);
+
+
+// spacing 
+// .mt-1 => margin-top:1 level;
+$spacing-base-size:1rem;
+$spacing-types:(m:margin,p:padding);
+$spacing-directions:(t:top,l:left,b:bottom,r:right);
+$spacing-sizes:(0:0,1:0.25,2:0.5,3:1,4:1.5,5:3);
+
+
+
+
+
+
